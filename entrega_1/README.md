@@ -14,7 +14,6 @@ This project implements a client/server architecture that simulates a distribute
 ## Requirements
 
 - Python 3.6+
-- No external dependencies beyond the Python standard library
 
 ## Setup
 
