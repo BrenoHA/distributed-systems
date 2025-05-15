@@ -77,6 +77,34 @@ class NFSClient:
         else:
             print(f"Error: {response['message'] if response else 'Unknown error'}")
             
+    def show_help(self):
+        """Display help information for all available commands"""
+        help_text = """
+Available Commands:
+------------------
+1. ls <path>
+   List contents of a directory
+   Example: ls /home/user/documents
+
+2. copy <source_path> <destination_path>
+   Copy a file from source to destination
+   Example: copy /home/user/file.txt /home/user/backup/file.txt
+
+3. delete <path>
+   Delete a file
+   Example: delete /home/user/old_file.txt
+
+4. help
+   Show this help message
+
+5. quit
+   Exit the client
+
+Note: For remote paths, prefix them with 'remoto:'
+Example: ls remoto:/documents
+"""
+        print(help_text)
+
 def main():
     parser = argparse.ArgumentParser(description='NFS Client')
     parser.add_argument('--host', default='localhost', help='Server host')
@@ -90,26 +118,39 @@ def main():
     try:
         while True:
             try:
-                command = input("\nEnter command (ls/copy/delete/quit): ").strip()
+                command_line = input("\nEnter command (ls/copy/delete/help/quit): ").strip()
                 
-                if command == 'quit':
+                if command_line == 'quit':
                     break
                     
-                if command == 'ls':
-                    path = input("Enter path: ").strip()
-                    client.ls(path)
+                # Split the command line into command and arguments
+                parts = command_line.split()
+                if not parts:
+                    print("Invalid command. Type 'help' for available commands.")
+                    continue
                     
+                command = parts[0]
+                args = parts[1:]
+                
+                if command == 'help':
+                    client.show_help()
+                elif command == 'ls':
+                    if len(args) != 1:
+                        print("Usage: ls <path>")
+                        continue
+                    client.ls(args[0])
                 elif command == 'copy':
-                    src = input("Enter source path: ").strip()
-                    dst = input("Enter destination path: ").strip()
-                    client.copy(src, dst)
-                    
+                    if len(args) != 2:
+                        print("Usage: copy <source_path> <destination_path>")
+                        continue
+                    client.copy(args[0], args[1])
                 elif command == 'delete':
-                    path = input("Enter path: ").strip()
-                    client.delete(path)
-                    
+                    if len(args) != 1:
+                        print("Usage: delete <path>")
+                        continue
+                    client.delete(args[0])
                 else:
-                    print("Invalid command. Available commands: ls, copy, delete, quit")
+                    print("Invalid command. Type 'help' for available commands.")
                     
             except KeyboardInterrupt:
                 break

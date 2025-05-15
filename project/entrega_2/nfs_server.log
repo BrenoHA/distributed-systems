@@ -4,3 +4,19 @@
 [2025-05-13 22:40:16] New client connected: 127.0.0.1:52264
 [2025-05-13 22:42:57] Client disconnected: 127.0.0.1:52263
 [2025-05-13 22:42:57] Client disconnected: 127.0.0.1:52264
+[2025-05-14 20:56:02] NFS Server started on localhost:5000
+[2025-05-14 20:56:02] Exporting directory: /tmp/nfs_export
+[2025-05-14 20:56:17] New client connected: 127.0.0.1:55271
+[2025-05-14 20:56:25] CLIENTE_127.0.0.1:55271 realizou operação 'ls' no diretório '/Users/brenoha/Documents/UFG/SD/project/entrega_2'
+[2025-05-14 20:57:28] CLIENTE_127.0.0.1:55271 realizou operação 'ls' no diretório '/Users/brenoha/Documents/UFG/SD/project/entrega_2/folder1'
+[2025-05-14 20:57:40] Client disconnected: 127.0.0.1:55271
+[2025-05-14 21:00:31] NFS Server started on localhost:5000
+[2025-05-14 21:00:31] Exporting directory: /tmp/nfs_export
+[2025-05-14 21:00:34] New client connected: 127.0.0.1:55328
+[2025-05-14 21:02:48] Client disconnected: 127.0.0.1:55328
+[2025-05-14 21:02:50] New client connected: 127.0.0.1:55386
+[2025-05-14 21:08:53] Client disconnected: 127.0.0.1:55386
+[2025-05-14 21:19:17] NFS Server started on localhost:5000
+[2025-05-14 21:19:17] Exporting directory: /tmp/nfs_export
+[2025-05-14 21:19:20] New client connected: 127.0.0.1:55836
+[2025-05-14 21:19:30] CLIENTE_127.0.0.1:55836 realizou operação 'ls' no diretório '/Users/brenoha/Documents/UFG/SD/project/entrega_2/folder_1'
